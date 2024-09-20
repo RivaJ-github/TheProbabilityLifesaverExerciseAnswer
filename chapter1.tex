@@ -1,0 +1,59 @@
+\newChapter 引言|5
+\exer 假设每个人都等可能地出生在一年中的任何一个月里. 如果两个人的出生月份 是相互独立的， 那么他们出生在同一个月的概率是多少?他们的出生月份最多相差一个 月的概率是多少?对于任意的$k\in\{0, 1,\cdots , 12\}$, 求他们的出生月份最多相差$k$个月的 概率. 你对两个人的出生月份最多相差一个月的可能性感到惊讶吗?\par
+Answer: 注意两点，一、1月和12月也应是相邻的；二、1月和8月相差5个月。\par
+记出生月份相差$X$个月的概率为$P(X)$，则
+\begin{gather*}
+P(X)=
+\begin{cases}
+\frac{1}{12} & k = 0\\
+\frac{1}{6} & 1\le k < 6 \\
+\frac{1}{12} & k = 6\\
+0 & k > 6
+\end{cases}
+\end{gather*}
+列表如下：
+\begin{center}
+\begin{tabular}{c|*{7}{c}}
+$k$ & 0 & 1 & 2 & 3 & 4 & 5 & $\ge 6$ \\
+\hline
+$P(X\le k)$ & 0.083 & 0.25 & 0.417 & 0.583 & 0.75 & 0.916 & 1 \\
+\end{tabular} 
+\end{center}
+
+\exer 保留生日问题中的条件不变, 并假设每次只有一个人进入房间. 首次与房间里其 他人生日相同的人最有可能第几个进入房间?
+\[ P(X=k) = \frac{A_{365}^{k-1}}{365^{k-1}} \cdot \frac{k-1}{365} \]
+\begin{align*}
+    \frac{P(X=k+1)}{P(X=k)} &= \frac{\frac{A_{365}^{k}}{365^{k}} \cdot \frac{k}{365}}{\frac{A_{365}^{k-1}}{365^{k-1}} \cdot \frac{k-1}{365}} \\
+    &=\frac{(366-k)k}{365(k-1)}
+\end{align*}
+设$\frac{(366-k)k}{365(k-1)}>1$，容易解得$k\le 19$。即当$k\le 19$时，$P(x=k+1) > P(x=k)$。所以$x=20$时，$P(X)$最大。即首次与房间里其 他人生日相同的人最有可能第20个进入房间。
+
+\exer 我们已经证明了, 当房间里有 23 人时, 至少有两人生日在同一天的概率为 50\%. 平均来说, 需要多少人才能使至少有两人生日在同一天?\par
+Answer: 根据鸽笼原理，有366个人可以保证至少有两人生日在同一天，但是什么是``平均来说''，实在理解不了？
+
+\exer 证明$\log(1−u)$的泰勒级数展开式为$−(u+u^2/2+u^3/3+\cdots)$.\par
+Answer: 首先，由等比数列求和公式：
+\[\frac{1}{1-u} = \sum_{n=0}^\infty u^n = 1+ u + u^2 + u^3 + \cdots\quad (-1<u<1)\]
+接着对两边积分：
+\begin{align*}
+\int\frac{1}{1-u}\mathrm{d}u &= \int\left(\sum_{n=0}^\infty u^n\right) \mathrm{d}u \\
+-\log(1-u)&=\sum_{n=0}^\infty \int u^n\mathrm{d}u = \sum_{n=0}^\infty \frac{u^{n+1}}{n+1} \\
+\log(1-u)&=-\sum_{n=1}^\infty \frac{u^n}{n} = -(u+u^2/2 + u^3/3+\cdots)
+\end{align*}
+
+\exer (近似)对于$u \in [-1/10, 1/10]$, $\log u$与其一阶泰勒级数近似 (即 $-u$) 之间的平均误差是多少?也就是计算
+\[\int_{-1/10}^{1/10}|\log(1-u)-(-u)|\mathrm du/(2/10)\]
+原题少了个负号，已修正。\par
+Answer:设$f(u) = \log(1-u) + u$，则$f'(u) = 1 - \frac{1}{1 - u}$，可知$f'(0)$在$[-1/10,0)$内始终为正，在$(0,1/10]$内为负，所以$f(0)=0$是区间最大值，所以$f(u)\le 0$，于是
+\begin{align*}
+&\int_{-1/10}^{1/10}|\log(1-u)-(-u)|\mathrm du/(2/10) \\
+=&-\frac{1}{5}\left(\int_{-1/10}^{1/10}(\log(1-u)+u)\mathrm du \right)\\
+=&-\frac{1}{5}\left(\left.(-(1-u) \ln (1-u) + (1-u) + \frac{u^2}{2})\right|_{-1/10}^{1/10}\right) \\
+\approx& 6.686\times10^{-5}
+\end{align*}
+
+\exer 证明:$\log_b(xy) = \log_b x + \log_b y$\par
+略
+
+\exer 在生日问题中,找到能导出表达式$\sqrt{D\cdot2\log2}$和$1/2+\sqrt{D\cdot2\log2}$的误差项,并求出给定$D$时的误差范围.\par
+Answer: 

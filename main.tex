@@ -1,0 +1,30 @@
+\documentclass[openany]{ctexbook}
+\usepackage{geometry}
+\geometry{
+  a4paper,         % 使用 A4 纸张大小
+  margin=2.5cm     % 设置页边距为 2.5 厘米
+}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{diagbox}
+\usepackage[table]{xcolor} % 加载 xcolor 包，并启用 table 选项
+\usepackage{listings}
+
+% define exercise
+\newcounter{exer}
+\counterwithin{exer}{section}
+\def\exer{\vskip 1ex\stepcounter{exer}{\bf 习题\theexer}\qquad\relax}
+
+\def\newChapter#1|#2{
+    \chapter{#1}
+    \setcounter{section}{#2}
+}
+
+% no indent
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\lstset{language=Python}
+\input chapter1.tex
+\end{document}
