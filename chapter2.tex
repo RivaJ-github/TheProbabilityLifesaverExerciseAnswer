@@ -1,0 +1,98 @@
+\newChapter 基本概率定律|9
+\exer 考虑集合$A = \{1,2,\cdots ,n\}$. 随机抽取$A$的一个子集. 如果 $A$的所有子集都等 可能地被抽到, 那么被抽到的子集包含 1 的概率是多少?被抽到的子集同时包含 1 和 2 的概率是多少?被抽到的子集包含 1 或 2 的概率是多少?\par
+Answer: 集合$A$有$2^n$个子集，其中包含1的子集有$2^{n-1}$个，包含2的子集个数同为$2^{n-1}$，同时包含$1,2$的集合个数为$2^{n-2}$。记事件$X_i$为抽到的子集包含$i$，则
+\begin{gather*}
+P(X_1)=P(X_2)=\frac{2^{n-1}}{2^n}=\frac{1}{2} \\
+P(X_1\cap X_2)=\frac{2^{n-2}}{2^n}=\frac{1}{4} \\
+P(X_1\cup X_2)=P(X_1)+P(X_2)-P(X_1\cap X_2)=\frac{3}{4}
+\end{gather*}
+上述结果表明结果与$n$无关。
+
+\exer 考虑集合$A = \{1,2,\cdots ,n\}$. 随机抽取$A$的一个子集. 如果 $A$的所有子集都等 可能地被抽到, 那么被抽到的子集有偶数个元素的概率是多少?答案是否依赖于$n$?如果 是, 那么$n$ 为偶数与$n$ 为奇数的情形, 哪个更容易处理?\par
+Answer1: 记抽到的子集有偶数个元素为事件$M$，有奇数个元素为事件$N$。\par
+如果$n$是奇数，任意一个含有奇数个元素的子集都有一个对应的含有偶数个元素的补集，反之亦然。所以此时$P(M)=P(N)=1/2$.\par
+如果$n$是偶数，不能直接得出结论。我们将集合$A$的子集分为包含$n$的和不包含$n$的。由于不包含$n$的子集就是$\{1,2,\cdots,n-1\}$的所有子集，而$n-1$是奇数，所以它有一半的子集有偶数个元素。而这些不包含$n$的子集与包含$n$的子集满足双射关系$f\to$添加元素$n$，所以包含$n$的部分中也有一半有奇数个元素。同样满足$P(M)=P(N)=1/2$\par
+Answer2: 含有$k$个元素的子集个数为组合数$C_n^k$.且有二项式定理
+\begin{gather*}
+(1+1)^n=C_n^0+C_n^1+C_n^2+\cdots+C_n(-1)^{n-1} + C_n^N(-1)^n =2^n\\
+(1-1)^n=C_n^0-C_n^1+C_n^2-\cdots+C_n(-1)^{n-1} + C_n^N(-1)^n = 0
+\end{gather*}
+两式相加
+\[(C_n^0 + C_n^2+C_n^4+\cdots)=2^{n-1}\]
+即含有偶数个元素的子集的个数恰好为总元素个数的一半。证毕
+
+\exer 找到满足$|A|=|B|$的集合$A$与$B$,其中$A$是实直线的子集,$B$是平面(即$\mathbb{R}^2$) 的一个子集, 但不是任何直线的子集.\par
+Answer: $A=B=\varnothing$就符合要求。
+
+\exer 设$\mathcal{P}(X)$是集合$X$ 的幂集. 设 $A$ 和 $B$ 是两个互不相交的非空有限集. $\mathcal{P}(A \cup B)$ = $\mathcal{P}(A)\cup\mathcal{P}(B)$是否成立?证明你的答案\par
+Answer: 不成立，考虑$A=\{1\},B=\{2\}$，则$A\cup B=\{1,2\}$。可以知道$\{1,2\}\in \mathcal{P}(A\cup B)$，而$\{1,2\}\not\in \mathcal{P}(A)\cup \mathcal{P}(B)$
+
+\exer $\mathcal{P}(A \cap B) =\mathcal{P}(A)\cap\mathcal{P}(B)$是否成立?证明你的答案.\par
+Answer: 对于任意集合$X$
+\begin{align*}
+    & X \in \mathcal{P}(A\cap B) \\
+\Longleftrightarrow &  X\subset A\cap B \\
+\Longleftrightarrow &  X\subset A\text{且}X\subset B \\
+\Longleftrightarrow &  X\in\mathcal{P}(A)\text{且}X\in\mathcal{P}(B) \\
+\Longleftrightarrow &  X\in \mathcal{P}(A)\cap\mathcal{P}(B)
+\end{align*}
+所以$\mathcal{P}(A \cap B) =\mathcal{P}(A)\cap\mathcal{P}(B)$成立
+
+\exer $\mathcal{P}(\mathcal{P}(A)\cup\mathcal{P}(B))$和$\mathcal{P}(\mathcal{P}(A \cup B))$之间有关系吗?如果有, 是什么关系?\par
+Answer: $\mathcal{P}(\mathcal{P}(A)\cup\mathcal{P}(B)) \subset\mathcal{P}(\mathcal{P}(A \cup B))$
+
+\exer 设$A$是元素个数为$n > 0$的有限集. 设$P_1(A) = P(A)$,并且当$m \ge2$时有$P_m(A) = P_{m-1}(A)$. 是否存在关于$ P_n(A)$ 大小的公式?如果存在, 这个公式是什么?\par
+Answer: $P_n(A)=P(A)$，所以$|P_n(A)|=|P(A)|=2^n$
+
+\exer 我们讨论了如何利用空集构造整数集. 从空集开始, 我们还可以构造集合$\{\varnothing\}$,$\{\{\varnothing\}\}$,\ $\{\{\{\varnothing\}\}\}$, 等等. 这比我们以前做得更好还是更糟?为什么?\par
+Answer: 显然是更糟的，因为原先的做法，新构造的集合的大小可以代表对应的整数。而现在每个集合的大小都是1，并没有那么直观。
+
+\exer 如果$A$中的每个元素都在$B$ 中, 并且$B$ 中的每个元素也都在$A$中, 那么集合$A$与$B$ 相等. 设$n$是任意一个正整数. 证明或反驳:恰有$n$个元素的不同集合只有有限多个.\par
+Answer: 这显然是不成立的。可以构建集合$A_k=\{k+1,k+2,k+3\cdots, k+n\}$，$k$取$k$为任意实数，$|A_k|=n$且对不同的$k$互不相同。所以可以断定恰有$n$个元素的不同集合有无限多个，且是不可数的。
+
+\exer 假设存在一个从集合$A$到正实数集的一对一函数$f$, 但它不是映上的.$A$必须包含无穷多个元素吗?\par
+Answer: 即然是$f$是单射，但不是满射，那么$A$不必包含无穷多个元素。甚至$A$可以只有一个元素，比如$\{1\}$。
+
+\exer 写一些关于连续统假设的内容, 不超过一段.\par
+略
+
+\exer 假设有两个事件$A$和$B$, 其中$\mathrm{Pr}(A) = 0.3$, $\mathrm{Pr}(B) = 0.6$, 并且 $\mathrm{Pr}(A \cap B^c) =
+0.2$. 那么$\mathrm{Pr}(A \cup B)$ 是多少?
+\begin{gather*}
+    \mathrm{Pr}(A\cap B) = \mathrm{Pr}(A) - \mathrm{Pr}(A\cap B^c) = 0.1 \\
+    \mathrm{Pr}(A \cup B) = \mathrm{Pr}(A) + \mathrm{Pr}(B) - \mathrm{Pr}(A \cap B) = 0.3 + 0.6 - 0.1 = 0.8
+\end{gather*}
+
+\exer 假设有三个事件$A$,$B$和$C$, 其中 $\mathrm{Pr}((A\cup B)\cap C) = 0.3$,$\mathrm{Pr}((A\cup C)\cap B) = 0.3$,$\mathrm{Pr}((B\cup C) ∩ A) = 0.3$ 且$\mathrm{Pr}(A\cap B\cap C) = 0$.1. 那么$\mathrm{Pr}(((A\cup B)\cap C)\cup ((A\cup C)\cap
+B)\cup ((B\cup C)\cap A))$ 是多少?\par
+Answer1: 划Venn图得解为0.4\par
+Answer2: 容斥原理：
+\begin{align*}
+    & \mathrm{Pr}(((A\cup B)\cap C)\cup ((A\cup C)\cap
+    B)\cup ((B\cup C)\cap A)) \\
+    =& \mathrm{Pr}((A\cup B)\cap C) + \mathrm{Pr}((A\cup C)\cap B) + \mathrm{Pr}((B\cup C)\cap A) \\
+    &-\mathrm{Pr}(((A\cup B)\cap C)\cap ((A\cup C)\cap B)) \\
+    &-\mathrm{Pr}(((A\cup B)\cap C)\cap ((B\cup C)\cap A)) \\
+    &-\mathrm{Pr}(((A\cup C)\cap B)\cap ((B\cup C)\cap A)) \\
+    & + \mathrm{Pr}(((A\cup B)\cap C)\cap ((A\cup C)\cap B)\cap ((B\cup C)\cap A)) \\
+    =&0.3+0.3+0.3-\mathrm{Pr}(B\cap C)-\mathrm{Pr}(A\cap C)-\mathrm{Pr}(A\cap B)+\mathrm{Pr}(A\cap B\cap C) \\
+    =&0.3+0.3+0.3-\mathrm{Pr}(B\cap C)-\mathrm{Pr}(A\cap C)-\mathrm{Pr}(A\cap B)+0.1 \\
+\end{align*}
+又由$\mathrm{Pr}((A\cup B)\cap C)=\mathrm{Pr}((A\cap C)\cup (B\cap C))=\mathrm{Pr}(A\cap C) + \mathrm{Pr}(B\cap C) - \mathrm{Pr}(A\cap B\cap C)$
+于是
+\[\mathrm{Pr}(A\cap C) + \mathrm{Pr}(B\cap C) = 0.4\]
+同理
+\begin{gather*}
+\mathrm{Pr}(A\cap B) + \mathrm{Pr}(A\cap C) = 0.4
+\mathrm{Pr}(A\cap B) + \mathrm{Pr}(B\cap C) = 0.4
+\end{gather*}
+连立上三式可知$\mathrm{Pr}(B\cap C)=\mathrm{Pr}(A\cap C)=\mathrm{Pr}(A\cap B) = 0.2$，
+于是
+\[\mathrm{Pr}(((A\cup B)\cap C)\cup ((A\cup C)\cap
+    B)\cup ((B\cup C)\cap A)) =0.9 - 3*0.2 + 0.1  = 0.4\]
+
+\exer 当证明 $\mathrm{Pr}(A\cup B) = \mathrm{Pr}(A) + \mathrm{Pr}(B) - \mathrm{Pr}(A \cap B)$时, 我们用交的概率表示并
+的概率. 稍后我们将看到, 交集通常更容易计算 (交表示每个事件都必须发生, 但并意味 着至少有一个事件发生). 推测一个关于 $\mathrm{Pr}(A\cup B\cup C)$ 的公式, 使其表示为交集的和与 差. 如果存在四个 (或更多个) 集合呢?一般情况下的答案就是容斥公式 (参见第 5 章).\par
+Answer: $$\mathrm{Pr}(A\cup B\cup C) = \mathrm{Pr}(A) + \mathrm{Pr}(B)+ \mathrm{Pr}(C) - \mathrm{Pr}(A\cap B) -\mathrm{Pr}(B\cap C)-\mathrm{Pr}(A\cap C) + \mathrm{Pr}(A\cap B\cap C)$$
+
+\exer 给出一个开集、一个闭集和一个既不开也不闭的集合 (你不可以使用本书中的 例子), 用几句话来证明你的答案.\par
