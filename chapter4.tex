@@ -1,0 +1,47 @@
+\newChapter 条件概率、独立性和贝叶斯定理|8
+\exer 许回到对$\mathrm{Pr}(A|B)$的猜想, 我们试着把它写成关于$\mathrm{Pr}(A)$,$\mathrm{Pr}(B)$和$\mathrm{Pr}(A \cap B)$的函数. 当我们考虑条件概率时, 考察以$\mathrm{Pr}(B)$为分母的比值是很合理的 (我们试图求出当已知$B$发生时, 某事发生的概率;可以将其视为对样本空间的调整, 所以现在$B$发生 的概率是 1, 而其他概率也要做出相应的调整). 我们能得到的最简单的公式是
+\[\mathrm{Pr}(A|B)=\frac{\alpha\mathrm{Pr}(A)+\beta\mathrm{Pr}(A\cap B)}{\mathrm{Pr}(B)}\]
+通过考察极端情况, 能使表达式有意义的唯一选择是$\alpha= 0$ 和 $\beta= 1$. 注意, 这显然不是对上述公式的证明, 只是一个补充说明. 更多内容请参阅 2.7 节, 尤其是 2.7.2 节.。\par
+Answer: 令$A=B$，则
+\begin{gather*}
+    \mathrm{Pr}(A|A)=\frac{\alpha\mathrm{Pr}(A)+\beta\mathrm{Pr}(A\cap A)}{\mathrm{Pr}(A)} \\
+    1 = \frac{\alpha \mathrm{Pr}(A)+\beta\mathrm{Pr}(A)}{\mathrm{Pr}(A)} \\
+    \alpha + \beta = 1
+\end{gather*}
+令$B=A^c$，则
+\begin{gather*}
+    \mathrm{Pr}(A|A^c)=\frac{\alpha\mathrm{Pr}(A)+\beta\mathrm{Pr}(A\cap A^c)}{\mathrm{Pr}(A^c)} \\
+    0 = \frac{\alpha \mathrm{Pr}(A)+\beta\mathrm{Pr}(\varnothing)}{\mathrm{Pr}(A^c)} = \frac{\alpha \mathrm{Pr}(A)}{\mathrm{Pr}(A^c)} \\
+    \alpha = 0
+\end{gather*}
+所以唯一的可能性是$\alpha=0$且$\beta=1$。
+
+\exer 一个事件能否依赖于另一个概率为 0 的事件?证明你的答案.\par
+Answer: 不考虑不可数集，答案是不能，因为概率为0或1的事件与任意事件相互独立。\par
+证明：假设$\mathrm{Pr}(A)=0$，则对于任意的事件$B$，$P(A\cap B)=P(\varnothing) =0=P(A)P(B)$.\par
+假设$\mathrm{Pr}(A)=1$，则对于任意的事件$B$，$P(A\cap B)=P(B) =P(A)P(B)$.
+
+\exer 找出三个满足$\mathrm{Pr}(A\cap B\cap C) = \mathrm{Pr}(A) \cdot \mathrm{Pr}(B) \cdot \mathrm{Pr}(C)$的事件, 并且其中至少有
+两个事件是相互依赖的.\par
+Answer: 从1--8中随机选择一个数。设事件$A=\{1,2,3,4\}$，$B=\{1,5,6,7\}$，$C=\{1,2,3,8\}$。
+\[\mathrm{Pr}(A\cap B\cap C)=\frac{1}{8}\]
+\[\mathrm{Pr}(A) \cdot \mathrm{Pr}(B) \cdot \mathrm{Pr}(C)=\left(\frac{1}{2}\right)^3=\frac{1}{8}\]
+但是$\mathrm{Pr}(A\cap B)=\frac{1}{8}\not=\mathrm{Pr}(A) \cdot \mathrm{Pr}(B)=\frac{1}{4}$
+
+\exer 如果$A$、$B$ 和 $C$ 是相互独立的事件, 那么$\mathrm{Pr}(A \cap B \cap C) = \mathrm{Pr}(A)\mathrm{Pr}(B)\mathrm{Pr}(C)$,
+$\mathrm{Pr}(A \cap B) = \mathrm{Pr}(A)\mathrm{Pr}(B)$, $\mathrm{Pr}(A \cap C) = \mathrm{Pr}(A)\mathrm{Pr}(C)$ 且 $\mathrm{Pr}(B \cap C) = \mathrm{Pr}(B)\mathrm{Pr}(C)$. 因 此, 我们需要验证 4 个条件. 如果$A_1 ,\cdots , A_n$ 是相互独立的, 那么需要验证多少个条件 呢?\par
+Answer1: 验证$n$个事件中$k$个事件相互独立，需要验证$C_n^k$次。所以总共需要验证：
+\[\sum_{k=2}^n C_n^k=2^n-C_n^0-C_n^1=2^n-n-1\]
+Answer2: 设$n$个事件需要$a_n$次验证，则$n+1$个事件需要额外验证：
+\[C_n^1 + C_n^2 + \cdots + C_n^n = 2^n - 1\]
+个条件。即
+\[a_{n+1}=a_n+2^n - 1\]
+于是
+\begin{align*}
+    a_{n+1}&=a_n+2^n - 1 \\
+    &= a_{n-1} + 2^{n-1} +2^n  - 2 \\
+    &\vdots \\
+    &=a_{2} + 2^2+2^3+\cdots+2^n - (n-1)
+\end{align*}
+已知$a_2=1$，所以
+\[a_{n}=a_{2} + 2^2+2^3+\cdots+2^{n-1} - (n-2)=2^n-3-(n-2)=2^n-n-1\]
