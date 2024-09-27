@@ -1,0 +1,47 @@
+\newChapter 工具：期望|{10}
+\exer 写出下列函数的前5个泰勒系数,或者说明为什么无法写出. (a)$\log(1-u)$在$u = 0$处;(b)$\log(1-u^2)$ 在 $u = 0 $处;(c) $x \sin(1/x)$在$x = 0$处.
+\begin{enumerate}
+\item $0,-1,-\frac{1}{2},-\frac{1}{3},-\frac{1}{4},\cdots$
+\item $0,0,-1,0,-\frac{1}{2},0,-\frac{1}{3},0,-\frac{1}{4},\cdots$
+\item 不存在，因为$x\sin(1/x)$在$x\to0$时发散。
+\end{enumerate}
+
+\exer 在 9.2 节中, 我们发现$\sum_{k=0}^n k^2\binom{n}{k}2^{-n}$ 等于$n$ 的二次多项式. 如果把$k^2$ 替换 $k^3$, 结果是什么?它也是关于$n$的多项式吗?如果是的话, 是什么样的多项式?\par
+Answer: 由二项式定理
+\[(1+x)^n=\sum_{k=0}^n\binom{n}{k}x^k\]
+对两边求一阶到三阶导数
+\begin{align*}
+n(1+x)^{n-1}&=\sum_{k=0}^n k\binom{n}{k}x^{k-1} \\
+n(n-1)(1+x)^{n-2}&=\sum_{k=0}^n k(k-1)\binom{n}{k}x^{k-2} \\
+n(n-1)(n-2)(1+x)^{n-3}&=\sum_{k=0}^n k(k-1)(k-2)\binom{n}{k}x^{k-3} 
+\end{align*}
+将$x=1$代入上式，整理得到
+\begin{align*}
+n\cdot 2^{n-1}&=\sum_{k=0}^n k\binom{n}{k} \\
+n(n-1)\cdot 2^{n-2}&=\sum_{k=0}^n (k^2-k)\binom{n}{k} \\
+n(n-1)(n-2)\cdot 2^{n-3}&=\sum_{k=0}^n (k^3-3k^2+2k)\binom{n}{k} 
+\end{align*}
+于是
+\begin{align*}
+\sum_{k=0}^n \binom{n}{k}2^{-n} &= 1 \\
+\sum_{k=0}^n k\binom{n}{k}2^{-n} &= \frac{n}{2} \\
+\sum_{k=0}^n k^2\binom{n}{k}2^{-n} &= \frac{n(n+1)}{4} \\
+\sum_{k=0}^n k^3\binom{n}{k}2^{-n} &= \frac{n^2(n+3)}{8} 
+\end{align*}
+
+\exer 通过计算$\lim_{\epsilon\to0^+}\int_\epsilon^1\mathrm dx/x$来证明$\int_0^1\mathrm dx/x$是无穷大的。\par
+略
+
+\exer 证明：$\arctan(x)$的导数是$1/(1+x^2)$.\par
+Answer: 设$y=\arctan(x)$，则$\tan(y)=x$
+\begin{gather*}
+    (\tan(\arctan(x)))'=(x)'\\
+    \frac{y'}{\cos^2(y)}=1\\
+    y'=\cos^2(y)=1/(\tan^2(t)+1)=1/(1+x^2)\\
+\end{gather*}
+
+\exer 证明：无论$A$和$B$沿着什么方向趋近于无穷大，极限$\lim_{A,B\to\infty}\int_{-A}^B\frac{\sin x}{x}\mathrm dx$始终存在。如果把被积函数换成$|\frac{\sin x}{x}|$，情况就一样了。\par
+Tips:利用夹逼定理和以下恒等式：
+\[0\le |\sin x| \le 1\]
+
+\exer 略

@@ -1,0 +1,89 @@
+\newChapter 连续型随机变量|6
+\exer 设$f$是一个连续函数, 并且$F'(x) = G'(x) = f(x)$. 证明:$F(x) - G(x)$是一个常数.\par
+略
+
+\exer 设$f$是一个连续函数;假设$F''(x) = G''(x) = f(x)$ 和 $F(x) = G(x)$至少对 $k$ 个不同的$x$ 成立. 能保证$F$ 和$G$始终相等的$k$的最小值是多少?\par
+Answer：由$F''(x) = G''(x) = f(x)$可知$F'(x)$和$G'(x)$相差一个常数。设$F'(x)=g(x)$，$G'(x)=g(x)+C_1$，于是
+\begin{gather*}
+F(x)=\int g(x) + C_2 \\
+G(x)=\int g(x) + C_1x + C_3 \\
+\end{gather*}
+要使$F(X)=G(x)$，则
+\[C_2 = C_1x + C_3\]
+所以$k$最小为3，可保证$F(X)=G(x)$相等。
+
+\exer 证明:在一个长度有限的区间上, 如果一个函数在该区间内除有限多个点之外的 其他点处均连续, 那么该函数是黎曼可积的. 如果这个函数在无限多个点处不连续, 那么 情况又如何?\par
+略
+
+\exer 已知$f:\mathbb{R}\to\mathbb{R}$是一个非负连续函数。如果不管$A$和$B$以什么样的方式趋近于$\infty$，
+\[\lim_{A,B\to\infty}\int_{-A}^Bf(x)\mathrm dx\]
+都存在唯一的极限，那么$f$就可积。证明：$f(x)=x\mathrm(exp)(-|x|)$可积，但$g(x)=x/(1+x^2)$不可积，$\sin(x)/x$可积吗？\par
+略
+
+\exer 下面的函数$f_X$是不是某个随机变量$X$的概率密度函数:
+\[f(x)=\begin{cases}
+4x^2+5x+2 & \text{若}0\le x\le 2 \\
+0 & \text{其他}
+\end{cases}\]\par
+如果不是, 那么找到一个$C$使得函数$g(x) = Cf(x)$是个概率密度函数, 或者证明不存
+在这样的$C$.\par
+Answer:
+\[\int_{-\infty}^\infty f(x)\mathrm dx = \int_0^2 4x^2+5x+2\mathrm dx =\left. 4x^3/3 + 5x^2/2 + 2x \right|_0^2=68/3\]
+所以$f(x)$不是概率密度函数，$g(x)=3f(x)/68$是。
+
+\exer 描述连续型随机变量的三个实际应用. 不要使用本章已有的例子.\par
+略
+
+\exer 判断下列随机变量是离散的还是连续的;根据你的理解, 有些变量既可以看作离
+散的, 也可以看作连续的!
+\begin{enumerate}
+\item $T$,你到达教室的时间. 
+\item $T'$,你到达教室的时间,具体到分钟.
+\item $N$, 报名参加概率论课程的孩子数. 
+\item $G$,你在考试中获得的分数,满分是100分.
+\item $H$, 你所在的概率论课上, 学生的平均身高.
+\item $S$, 建造威廉姆斯学院新科学大楼所需的砖瓦数. 
+\item $D$,太阳与沃尔夫359星之间的距离.
+\end{enumerate}
+Answer： $T,H,D$是连续的；$T',N,G,S$是离散的。
+
+\exer 找到满足下列条件的离散型随机变量$X$, 或证明其不存在:在 17 和 17.01 之间 可以找到一个$x$, 使得$f_X (x) = 2$, 这里的$f_X$ 是概率密度函数.\par
+Answer: 不存在，对于离散型随机变量，概率密度函数的值不可能大于1.
+
+\exer 找到满足下列条件的连续型随机变量$X$, 或证明其不存在:在 17 和 17.01 之间的$x$, 均有$f_X (x) = 2$, 这里的$f_X$ 是概率密度函数.\par
+Answer: 
+\[f_X(x)\begin{cases}
+2 & 17\le x \le 17.5 \\
+0 & \text{其他值}
+\end{cases}\]
+
+\exer 设$X$是一个连续型随机变量, 它的$\mathrm{pdf}f_X$满足$f_X (x) = f_X (−x)$. 你能推导 出关于$F_X$ (即CDF)的哪些内容?\par
+Answer: 因为$f_X (x) = f_X (−x)$，即$f_X$是偶函数。根据对称性可推知$F_X(0)=\frac{1}{2}$，且$F_X$关于$(0,\frac{1}{2})$中心对称。
+
+\exer 证明：
+\[f(x)=\begin{cases}
+2x\cdot \mathrm{e}^{-x^2} & \text{若}0\le x<\infty \\
+0 & \text{若} x < 0
+\end{cases}\]
+是一个概率密度函数. 它对应的累积分布函数$F_X$是什么?\par
+Answer: 首先$f(x)$是非负的，且是分段连续的。又由
+\begin{gather*}
+    \int 2x\cdot \mathrm{e}^{-x^2}\mathrm dx=\int -\mathrm{e}^{-x^2}\mathrm{d}(-x^2)=-\mathrm{e}^{-x^2} + C \\
+    \int_{-\infty}^\infty f(x) = \int_{-\infty}^0 0\mathrm dx + \int_0^\infty \mathrm{e}^{-x^2}\mathrm dx = \left.-\mathrm{e}^{-x^2}\right|_0^\infty = 1
+\end{gather*}
+所以其累积分布函数（由累积分布函数的连续性可知$F_X(0)=0$，于是$C=0$）
+\[F_X=\begin{cases}
+    -\mathrm{e}^{-x^2} + 1 & 0\le x < \infty \\
+    0 & x < 0
+\end{cases}\]
+
+\exer 对于任意的$x$, 均有$F_X (x) = \mathrm e^{-x}$, 那么$F_X$是一个累积分布函数吗?如果是,那么它对应的概率密度函数是什么?\par
+Answer: $F_X$是严格减函数，所以它不是累积分布函数。
+
+\exer $F_X (x) = 1 -\frac{x^2}{1+x^2}$是一个累积分布函数吗?如果是, 那么它对应的概率密度函数是什么?\par
+Answer: 因为$\lim\limits_{x\to \infty}F_X(x)=0$，所以它不是累积分布函数。
+
+\exer $F_X (x) = \frac{1}{2} +\frac{x}{2\sqrt{1+x^2}}$是一个累积分布函数吗?如果是, 那么它对应的概率密度函数是什么?\par
+Answer: 容易验证$\lim\limits_{x\to -\infty}F_X(x)=0$且$\lim\limits_{x\to \infty}F_X(x)=1$。再看其导数
+\[F'_X(x)=\frac{1}{2}\cdot \frac{\sqrt{1+x^2}-x^2/\sqrt{1+x^2}}{1+x^2}=\frac{(1+x^2)^{-3/2}}{2}>0\]
+所以$F_X$是累积分布函数。概率密度函数为$\frac{(1+x^2)^{-3/2}}{2}$

@@ -1,0 +1,32 @@
+\newChapter 离散型随机变量|5
+\exer 描述离散型随机变量的三个实际应用. 不要使用本章已经给出的例子.\par
+略
+
+\exer 交错调和级数如下所示
+\[\sum_{n=1}^\infty\frac{(-1)^{n+1}}{n}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}\cdots\]
+它的和是$\log(2)$.
+\[\mathrm{Pr}(X=n)=\frac{1}{\log(2)}\frac{(-1)^{n+1}}{n}\]
+是概率密度函数吗?请给出解释.\par
+Answer：不是，概率密度函数的值应总是非负的。
+
+\exer 给定正整数$k$和$n$,其中$k\le n$.证明:对于任意的$k\le m\le n$,$\mathrm{Pr}(M=m)=\binom{m-1}{k-1}/\binom{n}{k}$是概率密度函数。\par
+Answer: 显然$\mathrm{Pr}(M=m)$是非负的，如能证明下式则得证
+\[\sum_{m=k}^n \mathrm{Pr}(M=m)=1\]
+但是我计算失败了。所以我们转化下思路。\par
+假设从$\{1,2,\cdots, n\}$中随机选择$k$个数。则总共有$\binom{n}{k}$种选择方式。选中的最大的数为$m$的种类为$\binom{m-1}{k-1}$（其他的数是$m-1$个数中的$k-1$个）。所以其概率为$\mathrm{Pr}(M=m)=\binom{m-1}{k-1}/\binom{n}{k}$。而显然$m$只可能在$[k, n]$之间。所以$\sum_{m=k}^n \mathrm{Pr}(M=m)=1$，$\mathrm{Pr}(M=m)$是概率密度函数。
+
+\exer 当$C$取何值时, 对于所有的非负整数$n$, $\mathrm{Pr}(X = n) = C/n!$都是概率密度函数?\par
+Answer: 
+\[\sum_{n=0}^\infty\mathrm{Pr}(X=n)=\sum_{n=0}^\infty C/n! = C\mathrm{e} = 1 \]
+所以$C=1/\mathrm{e}$
+
+\exer 独立地抛掷两颗均匀的骰子, 并考察掷出的数字之和. 我们看到, 两个相同的随机变量之和会趋向于它们的中间值. 更确切地说, 如果结果空间中的元素可以构成一个等差数列, 那么两个独立同分布的随机变量之和就接近于该数列平均值的 2 倍. 这是为什么呢?\par
+Answer: 参考中心极限定理
+
+\exer 如果$X$是在$\{m,m+1,\cdots ,n\}$中均匀取值的离散型随机变量,那么$X-X$是什么情况?为什么?\par
+Answer: $X-X$是一个恒等于0的随机变量。它的结果空间只有一个元素，$\{0\}$.
+
+\exer 抛掷一颗6面骰子;在掷出数字6之前, 抛掷的总次数服从什么样的概率分布?\par
+Answer: 设事件$X$为掷出数字6之前抛掷的总次数，则
+\[\mathrm{Pr}(X=k)=\left(\frac{5}{6}\right)^k\cdot\frac{1}{6}\]
+是指数分布。
