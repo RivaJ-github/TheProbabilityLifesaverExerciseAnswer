@@ -1,0 +1,29 @@
+\newChapter 工具:卷积和变量替换|8
+\exer 给出随机变量$X$和$Y$的一个例子,使得它们的概率密度函数$f$和$g$满足:$X+Y$的概率密度函数不是$(f*g)(z)$.\par
+Answer：卷积要求随机变量，例如令$Y=-X$，则$Z=X+Y=0$
+
+% \exer 考虑一颗有$n$面的均匀骰子. 假设每次抛掷骰子都是独立的. 分别求出抛掷 2 次、3 次和 4 次后, 所得到数字之和的概率密度函数.\par
+% Answer：首先抛出1次的概率密度函数
+% \[f_1(k)=\begin{cases}
+%     \frac{1}{n} & 1 \le k \le n \\
+%     0 &\text{其他值}
+% \end{cases}\]
+% 抛出2次的概率密度函数
+% \begin{align*}
+% f_2(z)&=(f_1*f_1)(z) \\
+% &=\sum_k f_1(k)f_1(z-k) \\
+% &=\begin{cases}
+%   0  & z \le 1 \text{或} z \ge 2n+1  \\
+%   \sum\limits_{k=1}^{z-1}\frac{1}{n^2} = \frac{z-1}{n^2} & 2 \le z \le n + 1 \\
+%   \sum\limits_{k=z-n}^{n}\frac{1}{n^2} = \frac{2n-z+1}{n^2} & n+1 \le z \le 2n \\
+% \end{cases}
+% \end{align*}
+% 抛出3次的概率密度函数
+% \begin{align*}
+% f_3(z)&=(f_2*f_1)(z) \\
+% &=\sum_k f_2(k)f_1(z-k) \\
+% &=\begin{cases}
+%   \sum\limits_{k=z-n}^{z-1}\frac{k-1}{n^2}\cdot\frac{1}{n} =\frac{2z-n-3}{2n^2}  & 2 + n \le z \le 2n + 1 \\
+%   0  & \text{其他值} \\
+% \end{cases}
+% \end{align*}

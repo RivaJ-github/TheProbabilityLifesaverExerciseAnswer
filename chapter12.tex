@@ -1,0 +1,62 @@
+\newChapter 离散分布|8
+\exer 以下哪些分布具有对称性:泊松分布、几何分布、离散均匀分布、二项分布、负 二项分布和伯努利分布?使其对称的参数是什么?
+\begin{itemize}
+\item {\bf 二项分布}在$p=0.5$时是对称的。
+\item {\bf 离散均匀分布}在其支撑集关于均值对称时是对称的。
+\end{itemize}
+
+\exer 设$X$和$Y$是相互独立的随机变量,它们分别服从参数为$(r_X,p)$和$(r_Y, p)$的负二项分布, 请计算$\mathrm{Prob}(X + Y = n)$.\par
+Answer: 
+\begin{gather*}
+f_X(k) = \begin{cases}
+\binom{k+{r_X}-1}{k}p^k(1-p)^{r_X} & \text{若}k\in\{0,1,2,\cdots\} \\
+0 & \text{其他}
+\end{cases} \\
+f_Y(k) = \begin{cases}
+\binom{k+{r_Y}-1}{k}p^k(1-p)^{r_Y} & \text{若}k\in\{0,1,2,\cdots\} \\
+0 & \text{其他}
+\end{cases} 
+\end{gather*}
+计算$X$、$Y$的卷积：
+\begin{align*}
+\mathrm{Prob}(X+Y=n)&=(f_X*f_Y)(n) \\
+&=\sum_k f_X(k)f_Y(n-k) \\
+&=\begin{cases}
+    \sum\limits_{k=0}^n \binom{k+{r_X}-1}{k}p^k(1-p)^{r_X}\binom{n-k+{r_Y}-1}{n-k}p^{n-k}(1-p)^{r_Y} & n\ge0 \\
+    0 & n < 0
+\end{cases} \\
+&=\begin{cases}
+    \sum\limits_{k=0}^n \binom{k+{r_X}-1}{k}\binom{n-k+{r_Y}-1}{n-k}p^{n}(1-p)^{r_X+r_Y} & n\ge0 \\
+    0 & n < 0
+\end{cases}
+\end{align*}
+
+\exer 对于一个服从离散均匀分布的随机变量, 它在集合$\{1, 2, 3, \cdots, n\}$中取值时具有正的概率. 求出该随机变量的CDF.\par
+\[F(x)=\begin{cases}
+0 & x < 1 \\
+\frac{\lfloor x \rfloor}{n} &  1\le x < n+1\\
+1 & x \ge n
+\end{cases}\]
+
+\exer 设一个随机变量服从参数为$p$的几何分布,请给出它的CDF.\par
+Answer1: 定义法
+\begin{align*}
+F(x)&=\mathrm{Prob}(X\le x)=\sum_{k=1}^{\lfloor x\rfloor}p(1-p)^{k-1} \\
+&=\begin{cases}
+1-(1-p)^{\lfloor x\rfloor}   & x \ge 1 \\
+0 & x < 1
+\end{cases}
+\end{align*}
+Answer2: 
+\[F(x)=\mathrm{Prob}(X\le x)=1-\mathrm{Prob}(X>x)\]
+而事件$X>x$与前$\lfloor x\rfloor$次都是失败的等效。从而
+\[\mathrm{Prob}(X>x)=(1-p)^{\lfloor x\rfloor}\]
+进而得到同样的结果
+
+\exer 设随机变量$X$服从参数为$p$的几何分布, 求出$\mathbb{E}[1/X]$.
+Answer: 下面用到了$\ln(1-x)$的泰勒展开
+\begin{align*}
+\mathbb{E}[1/X] &= \sum_{k=1}^\infty \frac{1}{k}p(1-p)^{k-1} \\
+&=\frac{p}{1-p}\sum_{k=1}^\infty \frac{(1-p)^{k}}{k} \\
+&=-\frac{p\ln p}{1-p}
+\end{align*}
