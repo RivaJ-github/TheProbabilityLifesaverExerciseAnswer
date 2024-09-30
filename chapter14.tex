@@ -1,0 +1,61 @@
+\newChapter 连续型随机变量:正态分布|6
+\exer 我们把包含$\mathrm{e}^{-v^2}$(即正态分布积分的边界)的积分区域划分成两部分, 即$[0, 1]$和$[1, \infty)$. 把函数1看作第一个积分函数的上界, 把$e^{-v^2}$看作第二个积分函数的上界. 那 么, 把$e^{-v^2}$可以看作整个积分函数的上界吗?为什么?\par
+Answer: 不能
+
+\exer 对于某些特定的参数值, 下列哪些分布可以用正态分布来很好地逼近:连续均匀分布、指数分布、爱尔朗分布、泊松分布、几何分布、二项分布、负二项分布, 以及卡 方分布?\par
+Answer: 泊松分布和二项分布在一定条件下可以用正态分布来逼近，特别是当它们的参数达到一定阈值时。而指数分布、爱尔朗分布、几何分布和负二项分布通常不使用正态分布来逼近。
+
+\exer {\bf (互相垂直的直线乘积)}这是个$\infty\cdot 0 = -1$的有趣例子. 考虑两条穿过原点且互相垂直的直线.假设这两条直线都不在坐标轴上,证明:如果有一条直线的斜率是$m$,那么另一条直线的斜率就等于$-1/m$. 因此, 这两条直线的斜率乘积是$-1$. 在极限情况下,当两条直线与坐标轴平行时,它们斜率的乘积仍然为1, 此时$x$轴的斜率为0, 而$y$轴的斜率为$\infty$. 所以, 在这种情况下, 我们自然会说$\infty \cdot0 = -1$.\par
+略
+
+\exer 标准化随机变量的过程类似于你在对数表中所看到的东西(也可能不是这样, 因为现在很少有人使用对数表, 连手机都可以计算对数). 在“早”年间, 有专门用来计 算对数的查阅表 (在“更早”的时候, 有些人的工作就是计算这些对数值). 创建这些表 格需要花费大量时间, 而且你也不想随身携带它. 幸运的是, 如果知道以某个数为基底 的对数值, 就能求出以任何一个数为基底的对数!这是因为我们可以使用{\bf 换底公式}, 即$\log_c x = \log_b x/ \log_b c$. (因此, 如果能求出以$b$为底的对数, 就可以轻松地求出以任何数为底的对数.) 请证明该公式.\par
+Answer: 设$\log_c x=y$，根据定义：
+\[c^y=x\]
+于是
+\[\log_b x/ \log_b c = \log_b c^y/ \log_b c=y\log_b/\log_b=y\]
+
+\exer 证明:正态分布关于直线$x = \mu$ 对称.\par
+略
+
+\exer 考虑标准正态分布的概率密度函数, 即$f(x) =\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}$. 写出$f'(x)$的表达式, 用$f(x)$来表示.
+\[f'(x) =-\frac{x}{\sqrt{2\pi}}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}= -xf(x)\]
+
+\exer 对于标准正态分布,求出其概率密度函数的二阶导数,并用$f(x)$来表示$f''(x)$.
+\begin{align*}
+f''(x) &=(-xf(x))' \\
+&=-xf'(x) - f(x) \\
+&=-x(-xf(x)) - f(x) \\
+&=(x^2-1)f(x)
+\end{align*}
+
+\exer 对于参数为$(\mu, \sigma^2)$的正态分布, 求出它的所有奇数阶中心距.
+\exer 对于参数为$(\mu, \sigma^2)$的正态分布, 求出它的所有偶数阶中心距.\par
+Answer：记$k$阶中心距为$M_k$，根据定义
+\[M_k=\int_{-\infty}^\infty (x-\mu)^k\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm e^{-\frac{(x-\mu)^2}{2\sigma^2}}\mathrm{d}x\]
+令$t=\frac{x-\mu}{\sigma}$，则$\sigma\mathrm dt = \mathrm dx$
+\begin{align*}
+M_k&=\int_{-\infty}^\infty (t\sigma)^k\frac{1}{\sqrt{2\pi}}\mathrm e^{-t^2/2}\mathrm{d}t \\
+&=\frac{\sigma^k}{\sqrt{2\pi}}\int_{-\infty}^\infty t^k\mathrm e^{-t^2/2}\mathrm{d}t
+\end{align*}
+令$u=t^{k-1}$，$\mathrm{d}v=t\mathrm{e}^{-t^2/2}\mathrm{d}t$，则$
+\mathrm{d}u=(k-1)t^{k-2}\mathrm{d}t$，$v=-\mathrm e^{-t^2/2}$。
+\begin{align*}
+ &\int_{-\infty}^\infty t^{k}\mathrm e^{-t^2/2}\mathrm{d}t \\
+=&\int_{-\infty}^\infty u\mathrm dv \\
+=&\left.uv\right|_{-\infty}^\infty - \int_{-\infty}^\infty v\mathrm du \\
+=& \left.-t^{k-1}\mathrm e^{-t^2/2}\right|_{-\infty}^\infty +\int_{-\infty}^\infty \mathrm e^{-t^2/2}(k-1)t^{k-2}\mathrm{d}t \\
+=&(k-1)\int_{-\infty}^\infty t^{k-2}\mathrm e^{-t^2/2}\mathrm{d}t
+\end{align*}
+于是
+\begin{align*}
+M_k&=\frac{\sigma^k}{\sqrt{2\pi}}\int_{-\infty}^\infty t^k\mathrm e^{-t^2/2}\mathrm{d}t \\
+&=\frac{\sigma^k}{\sqrt{2\pi}}(k-1)\int_{-\infty}^\infty t^{k-2}\mathrm e^{-t^2/2}\mathrm{d}t \\
+&=\sigma^2(k-1)\frac{\sigma^{k-2}}{\sqrt{2\pi}}\int_{-\infty}^\infty t^{k-2}\mathrm e^{-t^2/2}\mathrm{d}t \\
+&=\sigma^2(k-1)M_{k-2} \\
+\end{align*}
+又已知$M_0=1$、$M_1=0$，于是
+\[M_k=\begin{cases}
+0 & k\text{是奇数} \\
+(k-1)!!\sigma^k & k\text{是偶数} \\
+\end{cases}\]
+

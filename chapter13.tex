@@ -1,0 +1,24 @@
+\newChapter 连续型随机变量:均匀分布与指数分布|3
+\exer 为什么不存在服从$(0,\infty)$上均匀分布的随机变量?\par
+略
+
+\exer 设$X \sim\mathrm{Unif}(a, b)$, 通过计算$\mathbb{E}[X^2] -\mathbb{E}[X]^2$ 来求出$X$的方差. 在计算方差时, 最难的部分是进行代数化简---这种方法会比另一种方法更简单吗?\par
+Answer: 
+\begin{align*}
+\mathbb{E}[X^2]&=\int_{-\infty}^\infty x^2f_X(x)\mathrm dx \\
+&=\frac{1}{b-a}\int_a^b x^2\mathrm dx \\
+&=\frac{1}{b-a}\left.\frac{x^3}{3}\right|_a^b = \frac{a^2+ab+b^2}{3} \\
+\sigma_X^2 &  =\mathbb{E}[X^2] -\mathbb{E}[X]^2 \\
+&=\frac{a^2+ab+b^2}{3} -\left(\frac{a+b}{2}\right)^2 \\
+&=\frac{4a^2+4ab+4b^2-3a^2-6ab-3b^2}{12}  \\
+&=\frac{a^2-2ab+b^2}{12}=\frac{(a-b)^2}{12} 
+\end{align*}
+
+\exer 给出关于$X \sim\mathrm{Unif}(a, b)$的一个量纲分析论述. 肯定存在一个与$a$和$b$无关的常数$C$, 使得$\mathrm{Var}(X) =C(b - a)^2$. 那么,$C$的取值范围是什么?\par
+略
+
+\exer 不利用对称性, 通过求积分来推导概率密度函数$\mathrm{Pr}(Z = z) (Z = X + Y$, 其中$X$和$Y$是相互独立且服从$[0, 1]$上均匀分布的随机变量), 并验证之前得到的答案.\par
+略
+
+\exer 设$X_1,X_2,\cdots$是相互独立且均服从$[0, 1]$上均匀分布的随机变量. 基于对$X_1$以及$X_1 + X_2$的概率密度函数的了解, 更容易找到$X_1+X_2+X_3$的概率密度函数, 还是$X_1 + X_2 + X_3 + X_4$的概率密度函数 (或者两者一样难)?求出两者的概率密度函数.\par
+Answer：记$X_1$的概率密度函数为$f$。则$X_1+X_2$的概率密度函数为$f*f$，$X_1+X_2+X_3$的概率密度函数为$f*f*f$，$X_1 + X_2 + X_3 + X_4$的概率密度函数为$f*f*f*f$=$(f*f)*(f*f)$，后者可以利用对称性减少一定的计算量，应相对简单些。计算过程略。
