@@ -1,0 +1,20 @@
+\newChapter 傅里叶分析与中心极限定理|5
+\exer 找到关于$f$和$g$的足够多的条件 , 使得柯西-施瓦兹不等式成为等式 . 试着找出其中最弱的条件.\par
+Answer: $f$和$g$在区间$[a,b]$上线性相关，设$f=\lambda g$\par
+证明：\begin{align*}
+\int_{-\infty}^{\infty}|f(x)g(x)|\mathrm dx &=\int_{-\infty}^{\infty}|\lambda f(x)^2|\mathrm dx \\
+&=|\lambda|\left(\int_{-\infty}^{\infty}|f(x)|^2\mathrm dx\right)^{1/2}\cdot\left(\int_{-\infty}^{\infty}|f(x)|^2\mathrm dx\right)^{1/2} \\
+&=\left(\int_{-\infty}^{\infty}|f(x)|^2\mathrm dx\right)^{1/2}\cdot\left(\int_{-\infty}^{\infty}|\lambda|^2|f(x)|^2\mathrm dx\right)^{1/2} \\
+&=\left(\int_{-\infty}^{\infty}|f(x)|^2\mathrm dx\right)^{1/2}\cdot\left(\int_{-\infty}^{\infty}|g(x)|^2\mathrm dx\right)^{1/2} 
+\end{align*}
+
+\exer 计算$f(x) =\mathrm e^{-|x|}$的傅里叶变换.
+\begin{align*}
+\widehat{f}(y)=&\int_{-\infty}^{\infty}f(x)\mathrm e^{-2\pi iyx}\mathrm dx \\
+=&\int_{-\infty}^{\infty}\mathrm e^{-|x|}\mathrm e^{-2\pi iyx}\mathrm dx \\
+=&\int_{-\infty}^{0}\mathrm e^{x}\mathrm e^{-2\pi iyx}\mathrm dx + \int_{0}^{\infty}\mathrm e^{-x}\mathrm e^{-2\pi iyx}\mathrm dx \\
+=&\int_{-\infty}^{0}\mathrm e^{-(2\pi iy-1)x}\mathrm dx + \int_{0}^{\infty}\mathrm e^{-(2\pi iy+1)x}\mathrm dx \\
+=&\left.\frac{\mathrm e^{-(2\pi iy-1)x}}{-(2\pi iy-1)}\right|_{-\infty}^{0} + \left.\frac{\mathrm e^{-(2\pi iy+1)x}}{-(2\pi iy+1)}\right|_0^{\infty} \\
+=&\frac{1}{-(2\pi iy-1)} - \frac{1}{-(2\pi iy+1)} \\
+=&\frac{2}{4\pi^2y^2+1} \\
+\end{align*}
