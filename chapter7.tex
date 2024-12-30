@@ -10,10 +10,18 @@
 Answer：不是，概率密度函数的值应总是非负的。
 
 \exer 给定正整数$k$和$n$,其中$k\le n$.证明:对于任意的$k\le m\le n$,$\mathrm{Pr}(M=m)=\binom{m-1}{k-1}/\binom{n}{k}$是概率密度函数。\par
-Answer: 显然$\mathrm{Pr}(M=m)$是非负的，如能证明下式则得证
+Answer 1: 显然$\mathrm{Pr}(M=m)$是非负的，如能证明下式则得证
 \[\sum_{m=k}^n \mathrm{Pr}(M=m)=1\]
-但是我计算失败了。所以我们转化下思路。\par
-假设从$\{1,2,\cdots, n\}$中随机选择$k$个数。则总共有$\binom{n}{k}$种选择方式。选中的最大的数为$m$的种类为$\binom{m-1}{k-1}$（其他的数是$m-1$个数中的$k-1$个）。所以其概率为$\mathrm{Pr}(M=m)=\binom{m-1}{k-1}/\binom{n}{k}$。而显然$m$只可能在$[k, n]$之间。所以$\sum_{m=k}^n \mathrm{Pr}(M=m)=1$，$\mathrm{Pr}(M=m)$是概率密度函数。
+\begin{align*}
+\sum_{m=k}^n \mathrm{Pr}(M=m) &= \sum_{m=k}^n\binom{m-1}{k-1}\mathrel{/}\binom{n}{k} \\
+&=\left(1 + \sum_{m=k+1}^n\binom{m}{k} - \binom{m-1}{k}\right)\mathrel{/}\binom{n}{k} \\
+&=\left(\sum_{m=k}^n\binom{m}{k} - \sum_{m=k+1}^n\binom{m-1}{k}\right)\mathrel{/}\binom{n}{k} \\
+&=\left(\binom{n}{k} + \sum_{m=k}^{n-1}\binom{m}{k} - \sum_{m=k+1}^n\binom{m-1}{k}\right)\mathrel{/}\binom{n}{k} \\
+&=\left(\binom{n}{k} + \sum_{m=k+1}^{n}\binom{m-1}{k} - \sum_{m=k+1}^n\binom{m-1}{k}\right)\mathrel{/}\binom{n}{k} \\
+&=\binom{n}{k}\mathrel{/}\binom{n}{k}=1 \\
+\end{align*}
+证毕（感谢Jason Jia提供思路）。\par
+Answer 2: 假设从$\{1,2,\cdots, n\}$中随机选择$k$个数。则总共有$\binom{n}{k}$种选择方式。选中的最大的数为$m$的种类为$\binom{m-1}{k-1}$（其他的数是$m-1$个数中的$k-1$个）。所以其概率为$\mathrm{Pr}(M=m)=\binom{m-1}{k-1}/\binom{n}{k}$。而显然$m$只可能在$[k, n]$之间。所以$\sum_{m=k}^n \mathrm{Pr}(M=m)=1$，$\mathrm{Pr}(M=m)$是概率密度函数。
 
 \exer 当$C$取何值时, 对于所有的非负整数$n$, $\mathrm{Pr}(X = n) = C/n!$都是概率密度函数?\par
 Answer: 
